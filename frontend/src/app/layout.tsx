@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 const roboto = Roboto({ weight: "500", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Polls. Seu criador de enquetes!",
+  title: "ReadyGo. Planeje sua viagem DOS SONHOS!",
   icons: {
     icon: ['/favicon.ico'],
     shortcut: ['/apple-touch-icon.png'],

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import logo from "/public/logo_sem_fundo.png";
+import logo from "/public/logoComFoto.png";
 import { useForm } from "react-hook-form";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Label } from "@radix-ui/react-label";

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Undo2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import logo from "/public/logo_sem_fundo.png";
+import logo from "/public/logoComFoto.png";
 
 export default function Error404() {
 
