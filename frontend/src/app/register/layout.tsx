@@ -2,7 +2,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Polls. | Cadastre-se"
+    title: "Tudo na Mala | Cadastre-se"
 };
 
 export default function RegisterLayout({ children }: { children: React.ReactNode }) {
