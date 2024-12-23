@@ -20,7 +20,7 @@ export function NavBarInitialPage() {
     const router = useRouter();
 
     return (
-        <header className="bg-white p-4 py-2 ">
+        <header className="bg-white p-4 py-4 ">
 
             <div className="flex md:justify-around justify-between items-center">
                 <Image

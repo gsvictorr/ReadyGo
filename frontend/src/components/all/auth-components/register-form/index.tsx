@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import logo from "/public/logoComFoto.png";
+import logo from "/public/logoEscrita.png";
 import { useForm } from "react-hook-form";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Label } from "@radix-ui/react-label";
@@ -15,7 +15,7 @@ import { useRouter } from "next/navigation";
 
 
 const registerFormSchema = z.object({
-    username: z.string().min(3, { message: "Insira um nome de usuário com pelo menos 3 caracteres." }),
+    name: z.string().min(3, { message: "Insira um nome de usuário com pelo menos 3 caracteres." }),
     email: z.string().email({ message: "Insira um email válido." }).min(10, { message: "Insira um email com no mínimo 10 caracteres." }),
     password: z.string().min(8, { message: "Insira uma senha com no mínimo 8 caracteres." }),
     repeat_password: z.string().min(8, { message: "Insira uma senha com no mínimo 8 caracteres." }),
@@ -30,7 +30,7 @@ export function RegisterForm() {
     const registerForm = useForm<RegisterFormType>({
         resolver: zodResolver(registerFormSchema),
         defaultValues: {
-            username: "",
+            name: "",
             email: "",
             password: "",
             repeat_password: ""
@@ -46,26 +46,26 @@ export function RegisterForm() {
                         <div className="flex justify-center">
                             <Image
                                 src={logo}
-                                width={60}
-                                height={60}
+                                width={150}
+                                height={150}
                                 alt="logo"
                             />
                         </div>
-                        <span className="text-gray-500 -mt-2 text-center">Seu criador de enquetes!</span>
+                        <span className="text-gray-500 -mt-2 text-center">Organize sua viagem PERFEITA!</span>
                         <h1 className="font-bold text-gray-500 text-2xl dark:text-white">Cadastre-se</h1>
 
                         <Form {...registerForm}>
                             <form className="space-y-4 w-full">
                                 <FormField
                                     control={registerForm.control}
-                                    name="username"
+                                    name="name"
                                     render={({ field }) => (
                                         <FormItem className="mb-2">
-                                            <Label htmlFor='text' className='font-bold text-sm'>Nome de usuário</Label>
+                                            <Label htmlFor='text' className='font-bold text-sm'>Nome</Label>
                                             <FormControl>
                                                 <Input
                                                     type='text'
-                                                    placeholder='@exemplo'
+                                                    placeholder='Digite seu nome'
                                                     className='rounded-md border-l-4 border-l-principal dark:bg-zinc-950'
                                                     {...field}
                                                 />

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import logo from "/public/logoComFoto.png";
+import logo from "/public/logoEscrita.png";
 import { useForm } from "react-hook-form";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Label } from "@radix-ui/react-label";
@@ -42,12 +42,12 @@ export function LoginForm() {
                         <div className="flex justify-center">
                             <Image
                                 src={logo}
-                                width={60}
-                                height={60}
+                                width={150}
+                                height={150}
                                 alt="logo"
                             />
                         </div>
-                        <span className="text-gray-500 -mt-2 text-center">Seu criador de enquetes!</span>
+                        <span className="text-gray-500 -mt-2 text-center">Organize sua viagem PERFEITA!</span>
                         <h1 className="font-bold text-gray-500 text-2xl dark:text-white">Entrar</h1>
                         <Form {...loginForm}>
                             <form className="space-y-4 w-full">
@@ -56,11 +56,11 @@ export function LoginForm() {
                                     name="email"
                                     render={({ field }) => (
                                         <FormItem className="mb-2">
-                                            <Label htmlFor='text' className='font-bold text-sm'>Nome de usuário</Label>
+                                            <Label htmlFor='text' className='font-bold text-sm'>Email</Label>
                                             <FormControl>
                                                 <Input
                                                     type='text'
-                                                    placeholder='@exemplo'
+                                                    placeholder='exemplo@email.com'
                                                     className='rounded-md border-l-4 border-l-principal dark:bg-zinc-950'
                                                     {...field}
                                                 />
