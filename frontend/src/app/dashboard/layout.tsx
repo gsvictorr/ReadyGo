@@ -2,10 +2,10 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Polls. | Feed"
+    title: "Tudo na Mala | Dashboard"
 };
 
-export default function FeedLayout({ children }: { children: React.ReactNode }) {
+export default function DashboardLayout({ children }: { children: React.ReactNode }) {
     return (
         <>
             <div className="">

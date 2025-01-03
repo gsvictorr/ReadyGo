@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Undo2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import logo from "/public/logoComFoto.png";
+import logo from "/public/logoEscrita.png";
 
 export default function Error404() {
 
@@ -19,11 +19,11 @@ export default function Error404() {
             </Button>
             <Image
                 src={logo}
-                width={70}
+                width={150}
                 alt="logo"
-                className="mt-8"
+                className="mt-4"
             />
-            <p className="text-gray-500 font-bold text-xs">Copyright© Polls. 2024 - Todos os direitos reservados.</p>
+            <p className="text-gray-500 font-bold text-xs">Copyright© TudoNaMala. 2025 - Todos os direitos reservados.</p>
         </div>
     );
 }
