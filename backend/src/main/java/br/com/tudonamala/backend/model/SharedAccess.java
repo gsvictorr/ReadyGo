@@ -1,5 +1,7 @@
 package br.com.tudonamala.backend.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,12 +25,14 @@ public class SharedAccess {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = true) // Usuário com acesso (pode ser nulo para acesso por link público)
+    @JoinColumn(name = "user_id", nullable = false) // Usuário que recebeu acesso
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "travel_list_id", nullable = false)
+    @JoinColumn(name = "travel_list_id")
     private TravelList sharedList;
 
     private boolean canEdit = false; // Permite editar ou apenas visualizar
+
+    private LocalDateTime createdAt;
 }
