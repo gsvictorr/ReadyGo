@@ -2,6 +2,8 @@ package br.com.tudonamala.backend.model;
 
 import br.com.tudonamala.backend.enums.CategoryType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -24,8 +26,12 @@ public class ListItem {
     private Long id;
 
     private String name; 
+
+    @Enumerated(EnumType.STRING)
     private CategoryType category;
+    
     private boolean isCompleted = false;
+    private int quantity;
 
     @ManyToOne
     @JoinColumn(name = "travel_list_id", nullable = false)

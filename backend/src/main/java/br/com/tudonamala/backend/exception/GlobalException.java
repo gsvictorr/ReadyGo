@@ -17,8 +17,14 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import br.com.tudonamala.backend.exception.auth.LoginException;
 import br.com.tudonamala.backend.exception.auth.RegisterException;
 import br.com.tudonamala.backend.exception.auth.TokenInvalidException;
+import br.com.tudonamala.backend.exception.listItem.ListItemLimitException;
+import br.com.tudonamala.backend.exception.listItem.ListItemNotFoundException;
+import br.com.tudonamala.backend.exception.sharedAccess.SharedAccessException;
+import br.com.tudonamala.backend.exception.sharedAccess.SharedAccessNotFoundException;
+import br.com.tudonamala.backend.exception.sharedAccess.SharedAccessUnauthorized;
 import br.com.tudonamala.backend.exception.system.SystemException;
 import br.com.tudonamala.backend.exception.travelList.TravelListLimitException;
+import br.com.tudonamala.backend.exception.travelList.TravelListNotFoundException;
 import br.com.tudonamala.backend.exception.user.UserForgotPasswordException;
 import br.com.tudonamala.backend.exception.user.UserNotFoundException;
 
@@ -43,7 +49,6 @@ public class GlobalException {
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
     }
-
 
     // AuthenticationException
     @ResponseStatus(HttpStatus.FORBIDDEN)
@@ -121,6 +126,60 @@ public class GlobalException {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(SystemException.class)
     public Map<String, String> exception(SystemException ex) {
+        Map<String, String> errorsMap = new HashMap<String, String>();
+        errorsMap.put("error", ex.getMessage());
+        return errorsMap;
+    }
+
+    // ListItemLimitException
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(ListItemLimitException.class)
+    public Map<String, String> exception(ListItemLimitException ex) {
+        Map<String, String> errorsMap = new HashMap<String, String>();
+        errorsMap.put("error", ex.getMessage());
+        return errorsMap;
+    }
+
+    // TravelListNotFoundException
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(TravelListNotFoundException.class)
+    public Map<String, String> exception(TravelListNotFoundException ex) {
+        Map<String, String> errorsMap = new HashMap<String, String>();
+        errorsMap.put("error", ex.getMessage());
+        return errorsMap;
+    }
+
+    // ListItemNotFoundException
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(ListItemNotFoundException.class)
+    public Map<String, String> exception(ListItemNotFoundException ex) {
+        Map<String, String> errorsMap = new HashMap<String, String>();
+        errorsMap.put("error", ex.getMessage());
+        return errorsMap;
+    }
+
+    // SharedAccessNotFoundException
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(SharedAccessNotFoundException.class)
+    public Map<String, String> exception(SharedAccessNotFoundException ex) {
+        Map<String, String> errorsMap = new HashMap<String, String>();
+        errorsMap.put("error", ex.getMessage());
+        return errorsMap;
+    }
+
+    // SharedAccessException
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(SharedAccessException.class)
+    public Map<String, String> exception(SharedAccessException ex) {
+        Map<String, String> errorsMap = new HashMap<String, String>();
+        errorsMap.put("error", ex.getMessage());
+        return errorsMap;
+    }
+
+    // SharedAccessUnauthorized
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ExceptionHandler(SharedAccessUnauthorized.class)
+    public Map<String, String> exception(SharedAccessUnauthorized ex) {
         Map<String, String> errorsMap = new HashMap<String, String>();
         errorsMap.put("error", ex.getMessage());
         return errorsMap;

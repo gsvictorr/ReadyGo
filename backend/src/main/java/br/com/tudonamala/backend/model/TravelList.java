@@ -1,6 +1,6 @@
 package br.com.tudonamala.backend.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 import br.com.tudonamala.backend.enums.ListPlan;
@@ -45,5 +45,5 @@ public class TravelList {
     @OneToMany(mappedBy = "sharedList", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SharedAccess> sharedAccess; // Usuários com quem a lista foi compartilhada.
 
-    private LocalDateTime createdAt;
+    private LocalDate createdAt;
 }

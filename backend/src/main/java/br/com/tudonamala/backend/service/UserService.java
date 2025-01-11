@@ -42,8 +42,7 @@ public class UserService {
             newUser.setCreatedAt(LocalDateTime.now());
             userRepository.save(newUser);
 
-            UserResponse userResponse = new UserResponse(newUser);
-            return userResponse;
+            return new UserResponse(newUser);
 
         } catch (Exception e) {
             throw new RegisterException("Ocorreu um erro ao registrar o usuário: " + e.getMessage());
