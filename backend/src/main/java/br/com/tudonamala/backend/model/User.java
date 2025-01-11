@@ -1,5 +1,6 @@
 package br.com.tudonamala.backend.model;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -34,11 +35,15 @@ public class User implements UserDetails {
 
     private String password;
 
-    private boolean isEnabled = true;
+    private boolean enabled = true;
 
     private boolean passwordChanged;
 
     private UserRole role;
+
+    private LocalDateTime createdAt;
+
+    
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -72,5 +77,9 @@ public class User implements UserDetails {
         return true;
     }
 
+    @Override
+    public boolean isEnabled() {
+        return this.enabled;
+    }
 
 }

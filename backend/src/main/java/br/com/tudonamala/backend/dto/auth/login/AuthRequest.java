@@ -1,4 +1,4 @@
-package br.com.tudonamala.backend.dto.auth;
+package br.com.tudonamala.backend.dto.auth.login;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

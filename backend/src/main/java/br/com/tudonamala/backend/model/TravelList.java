@@ -1,10 +1,13 @@
 package br.com.tudonamala.backend.model;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.List;
 
+import br.com.tudonamala.backend.enums.ListPlan;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,15 +31,19 @@ public class TravelList {
     private Long id;
 
     private String name;
-    private boolean isPublic = true;
+
+    @Enumerated(EnumType.STRING)
+    private ListPlan plan; // Define o plano da lista: FREE ou PREMIUM.
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User owner;
+    private User owner; // Dono da lista.
 
     @OneToMany(mappedBy = "travelList", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ListItem> items = new ArrayList<>();
+    private List<ListItem> items; // Itens da lista.
 
     @OneToMany(mappedBy = "sharedList", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<SharedAccess> sharedAccess = new ArrayList<>();
+    private List<SharedAccess> sharedAccess; // Usuários com quem a lista foi compartilhada.
+
+    private LocalDate createdAt;
 }
